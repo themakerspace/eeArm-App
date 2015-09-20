@@ -4,6 +4,7 @@
   xmlns="http://www.w3.org/ns/widgets" 
   xmlns:gap="http://phonegap.com/ns/1.0"
   xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  
   <name>eeArm</name>
   <description>
   An awesome app to wirelessly control the eeArm.
@@ -13,18 +14,17 @@
   </author>
   <content src="index.html"/>
 
-  <preference name="permissions"                value="none"/>
+  <preference name="permissions"                value="none" />
+  <preference name="webviewbounce"              value="true" />    
+  <preference name="ios-statusbarstyle"         value="black-opaque" />
+  <preference name="exit-on-suspend"            value="false" />
+  <preference name="show-splash-screen-spinner" value="false" />   
+  <preference name="SplashScreen"               value="screen"/>
+  <preference name="AutoHideSplashScreen"       value="false" />     
 
-    <!-- Customize your app and platform with the preference element. -->
-    <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
-    <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
-    <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
-    <preference name="webviewbounce"              value="true" />    
-    <preference name="ios-statusbarstyle"         value="black-opaque" />
-    <preference name="exit-on-suspend"            value="false" />
-    <preference name="show-splash-screen-spinner" value="false" />          
   <gap:plugin name="org.apache.cordova.splashscreen" />
 
+  <!-- Android Icons -->
   <icon src="resources/android/icon/drawable-ldpi-icon.png" gap:platform="android" gap:qualifier="ldpi"/>
   <icon src="resources/android/icon/drawable-mdpi-icon.png" gap:platform="android" gap:qualifier="mdpi"/>
   <icon src="resources/android/icon/drawable-hdpi-icon.png" gap:platform="android" gap:qualifier="hdpi"/>
@@ -43,6 +43,9 @@
   <gap:splash src="resources/android/splash/drawable-port-xhdpi-screen.png" gap:platform="android" gap:qualifier="port-xhdpi"/>
   <gap:splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" gap:platform="android" gap:qualifier="port-xxhdpi"/>
   <gap:splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" gap:platform="android" gap:qualifier="port-xxxhdpi"/>
+
+
+  <!-- iOS Icons -->
   <icon src="resources/ios/icon/icon.png" gap:platform="ios" width="57" height="57"/>
   <icon src="resources/ios/icon/icon@2x.png" gap:platform="ios" width="114" height="114"/>
   <icon src="resources/ios/icon/icon-40.png" gap:platform="ios" width="40" height="40"/>
@@ -69,8 +72,11 @@
   <gap:splash src="resources/ios/splash/Default-Portrait~ipad.png" gap:platform="ios" width="768" height="1024"/>
   <gap:splash src="resources/ios/splash/Default@2x~iphone.png" gap:platform="ios" width="640" height="960"/>
   <gap:splash src="resources/ios/splash/Default~iphone.png" gap:platform="ios" width="320" height="480"/>
+  
   <icon src="resources/icon.png"/>
+
   <plugin name="cordova-plugin-whitelist" version="1.0.0"/>
+  
   <access origin="*"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
@@ -78,6 +84,7 @@
   <allow-intent href="sms:*"/>
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
+  
   <platform name="android">
     <allow-intent href="market:*"/>
   </platform>
@@ -85,6 +92,4 @@
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
   </platform>
-  <preference name="SplashScreen" value="screen"/>
-  <preference name="AutoHideSplashScreen" value="false" />
 </widget>

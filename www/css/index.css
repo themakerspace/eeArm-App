@@ -51,10 +51,10 @@ body {
     left:50%;
     top:50%;
     height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
+    width:280px;                   /* text area width */
     text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+    padding:150px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-175px 0px 0px -140px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
 }
 
@@ -84,7 +84,6 @@ h1 {
     font-size:12px;
     margin:0px 30px;
     padding:2px 0px;
-    text-transform:uppercase;
 }
 
 .event.listening {
@@ -112,4 +111,8 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+.instructions{
+    font-size:16px;
 }
