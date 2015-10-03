@@ -1,51 +1,77 @@
-<!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
+<html lang="en" ng-app="eeArm">
     <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>eeArm Control</title>
+        <meta name="viewport" content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
+        <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="styles/app.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css">
     </head>
-    <body>
-        <div class="app">
-            <h1>eeArm Control</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Connecting to eeArm...</p>
+    <body ng-controller="eeArm">
+        <div class="content">
+            <div class="header">
+                <md-toolbar layout="row" layout-align="space-around center">
+                <span flex></span>
+                <span>eeArm</span>
+                <span flex></span>
+                </md-toolbar>
             </div>
-            <div class="instructions">
-                <p>Please open your device Wifi Settings and connect to the access point ending in eeArm (eg. "skipping unicorn eeArm"). Then navigate back to this app to continue.</p>
+            <div class="view">
+                <div id="robot-control-wrapper" layout="column"  flex>
+
+                        <div layout="row" flex=30>
+                            <div flex></div>
+                            <div flex></div>
+                        </div>
+                        <div layout="row" flex=25>
+                            <div flex=40></div>
+                            <div flex></div>
+                        </div>
+                        <div layout="row" flex=25>
+                            <div flex></div>
+                            <div flex></div>
+                        </div>
+                        <div layout="row" flex>
+                            <div flex></div>
+                            <div flex></div>
+                        </div>
+                 <!--    <div class="control-block" id="one" onclick="document.getElementById('control-image').src ='images/robot/robot_claw_active.png'"></div>
+                    <div class="control-block" id="two" onclick="document.getElementById('control-image').src = 'images/robot/robot_claw_active.png'"></div>
+                    <div class="control-block" id="three" onclick="document.getElementById('control-image').src ='images/robot/robot_neck_active.png'"></div>
+                    <div class="control-block" id="four" onclick="document.getElementById('control-image').src ='images/robot/robot_neck_active.png'"></div>
+                    <div class="control-block" id="five" onclick="alert('Body Down')"></div>
+                    <div class="control-block" id="six" onclick="alert('Body Up')"></div>
+                    <div class="control-block" id="seven" onclick="alert('Base Left')"></div>
+                    <div class="control-block" id="eight" onclick="alert('Base Right')"></div> -->
+                </div>
+            </div>
+            <div class="footer">
+                <div id="robot-position" layout="row" layout-align="space-around center">
+                    <span><b>Base: </b>78&deg;</span>
+                    <span><b>Neck: </b>69&deg;</span>
+                    <span><b>Arm: </b>23&deg;</span>
+                    <span><b>Claw: </b>45&deg;</span>
+                </div>
+                <md-toolbar layout="row" flex="100">
+                <span flex="20"><i class="fa fa-floppy-o"></i></span>
+                <span flex="20"><i class="fa fa-undo"></i></span>
+                <span flex="20"><i class="fa fa-flag-o"></i></span>
+                <span flex="20"><i class="fa fa-play"></i></span>
+                <span flex="20" ng-click="openBottomSheet()"><i class="fa fa-ellipsis-v"></i></span>
+                </md-toolbar>
             </div>
         </div>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+        <script src="bower_components/angular-material/angular-material.min.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/eeArm.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>

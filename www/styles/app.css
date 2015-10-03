@@ -1,0 +1,106 @@
+﻿*:focus {
+  outline: 0;
+}
+
+.html, body, .content {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
+.header, .view, .footer {
+  width: 100%;
+}
+
+.header {
+}
+
+  .header md-toolbar {
+    min-height: 55px;
+    max-height: 55px;
+  }
+
+.view {
+  height: calc(100% - 135px);
+}
+
+  .view #robot-control-wrapper {
+    height: 100%;
+    background: url("../images/robot/robot_initial.png")  no-repeat center center;
+    background-size: auto 100%;
+  }
+
+    .view #robot-control-wrapper img {
+      width: 100%;
+    }
+
+ /*   .view #robot-control-wrapper .control-block {
+      height: calc((100% - 135px) /4);
+      width: 50%;
+      z-index: 33;
+      position: fixed;
+    }*/
+
+#one {
+  left: 0;
+}
+
+#two {
+  right: 0;
+}
+
+#three {
+  top: calc(((100% - 135px) / 4) + 55px);
+  left: 0;
+}
+
+#four {
+  top: calc(((100% - 135px) / 4) + 55px);
+  right: 0;
+}
+
+#five {
+  top: calc((((100% - 135px) / 4) * 2) + 55px);
+  left: 0;
+}
+
+#six {
+  top: calc((((100% - 135px) / 4) * 2) + 55px);
+  right: 0;
+}
+
+#seven {
+  top: calc((((100% - 135px) / 4) * 3) + 55px);
+  left: 0;
+}
+
+#eight {
+  top: calc((((100% - 135px) / 4) * 3) + 55px);
+  right: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+}
+
+  .footer #robot-position {
+    padding-bottom: 5px;
+  }
+
+  .footer > md-toolbar i {
+    font-size: 25px;
+  }
+
+  .footer > md-toolbar {
+    min-height: 50px;
+    max-height: 50px;
+    height: 50px;
+  }
+
+    .footer > md-toolbar > span {
+      text-align: center;
+      padding-top: 12.5px;
+      padding-bottom: 12.5px;
+    }
