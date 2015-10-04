@@ -1,10 +1,10 @@
 <html lang="en" ng-app="eeArm">
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <title>eeArm Control</title>
+        <title>eeArm App</title>
         <meta name="viewport" content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
@@ -18,28 +18,28 @@
         <md-button class="md-icon-button" aria-label="Menu">
           <md-icon md-svg-icon="images/icons/reorder.svg"></md-icon>
         </md-button>
-        <h2>
+        <h1>
           <span>eeArm</span>
-        </h2>
+        </h1>
         </div>
         </md-toolbar>
-        <div id="content" flex>
+        <div id="content" flex  layout="column"  layout-align="center center" layout-wrap>
             <div id="robot-control-wrapper" layout="column">
-                <div layout="row" flex="30">
-                    <md-button flex></md-button>
-                    <md-button flex></md-button>
+                <div layout="row" flex="33">
+                    <md-button ng-click="clawClose()" flex></md-button>
+                    <md-button ng-click="clawOpen()" flex></md-button>
                 </div>
                 <div layout="row" flex="25">
-                    <md-button flex="40"></md-button>
-                    <md-button flex></md-button>
+                    <md-button ng-click="neckMoveUp()" flex="40"></md-button>
+                    <md-button ng-click="neckMoveDown()" flex></md-button>
                 </div>
                 <div layout="row" flex="25">
-                    <md-button flex></md-button>
-                    <md-button flex></md-button>
+                    <md-button ng-click="bodyMoveBackward()" flex></md-button>
+                    <md-button ng-click="bodyMoveForward()" flex></md-button>
                 </div>
                 <div layout="row" flex>
-                    <md-button flex></md-button>
-                    <md-button flex></md-button>
+                    <md-button ng-click="baseRotateRight()" flex></md-button>
+                    <md-button ng-click="baseRotateLeft()" flex></md-button>
                 </div>
             </div>
         </div>
@@ -50,20 +50,23 @@
             <span><b>Claw: </b>45&deg;</span>
         </div> -->
         <md-toolbar>
-        <div class="md-toolbar-tools" layout="row">
-            <md-button class="md-icon-button" aria-label="Save" flex>
+        <div class="md-toolbar-tools" layout="row" layout-align="space-between center" layout-wrap>
+            <md-button class="md-icon-button" aria-label="Add" ng-click="addStep()">
+              <md-icon md-svg-icon="images/icons/plus25.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Save" ng-click="saveSteps()">
               <md-icon md-svg-icon="images/icons/save8.svg"></md-icon>
             </md-button>
-            <md-button class="md-icon-button" aria-label="Undo" flex>
+            <md-button class="md-icon-button" aria-label="Undo" ng-click="clearLastStep()">
               <md-icon md-svg-icon="images/icons/undo5.svg"></md-icon>
             </md-button>
-            <md-button class="md-icon-button" aria-label="Go to start" flex>
+            <md-button class="md-icon-button" aria-label="Go to start" ng-click="goToStart()">
               <md-icon md-svg-icon="images/icons/white66.svg"></md-icon>
             </md-button>
-            <md-button class="md-icon-button" aria-label="Play" flex>
+            <md-button class="md-icon-button" aria-label="Play" ng-click="playSteps()">
               <md-icon md-svg-icon="images/icons/play128.svg"></md-icon>
             </md-button>
-            <md-button class="md-icon-button" aria-label="More" flex ng-click="openBottomSheet()">
+            <md-button class="md-icon-button" aria-label="More" ng-click="openBottomSheet()">
               <md-icon md-svg-icon="images/icons/vertical5.svg"></md-icon>
             </md-button>
         </div>
