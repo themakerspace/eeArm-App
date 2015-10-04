@@ -1,0 +1,25 @@
+{
+  "name": "eeArm-App",
+  "version": "0.0.1",
+  "homepage": "https://github.com/themakerspace/eeArm-App",
+  "authors": [
+    "Chris Fraser <mrfunnel@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.11.0",
+    "fontawesome": "~4.4.0",
+    "jquery": "~2.1.4"
+  }
+}

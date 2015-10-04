@@ -12,60 +12,63 @@
         <link rel="stylesheet" href="styles/app.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css">
     </head>
-    <body ng-controller="eeArm">
-        <div class="content">
-            <div class="header">
-                <md-toolbar layout="row" layout-align="space-around center">
-                <span flex></span>
-                <span>eeArm</span>
-                <span flex></span>
-                </md-toolbar>
-            </div>
-            <div class="view">
-                <div id="robot-control-wrapper" layout="column"  flex>
-
-                        <div layout="row" flex=30>
-                            <div flex></div>
-                            <div flex></div>
-                        </div>
-                        <div layout="row" flex=25>
-                            <div flex=40></div>
-                            <div flex></div>
-                        </div>
-                        <div layout="row" flex=25>
-                            <div flex></div>
-                            <div flex></div>
-                        </div>
-                        <div layout="row" flex>
-                            <div flex></div>
-                            <div flex></div>
-                        </div>
-                 <!--    <div class="control-block" id="one" onclick="document.getElementById('control-image').src ='images/robot/robot_claw_active.png'"></div>
-                    <div class="control-block" id="two" onclick="document.getElementById('control-image').src = 'images/robot/robot_claw_active.png'"></div>
-                    <div class="control-block" id="three" onclick="document.getElementById('control-image').src ='images/robot/robot_neck_active.png'"></div>
-                    <div class="control-block" id="four" onclick="document.getElementById('control-image').src ='images/robot/robot_neck_active.png'"></div>
-                    <div class="control-block" id="five" onclick="alert('Body Down')"></div>
-                    <div class="control-block" id="six" onclick="alert('Body Up')"></div>
-                    <div class="control-block" id="seven" onclick="alert('Base Left')"></div>
-                    <div class="control-block" id="eight" onclick="alert('Base Right')"></div> -->
+    <body ng-controller="eeArm"  layout="column" >
+        <md-toolbar>
+        <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Menu">
+          <md-icon md-svg-icon="images/icons/reorder.svg"></md-icon>
+        </md-button>
+        <h2>
+          <span>eeArm</span>
+        </h2>
+        </div>
+        </md-toolbar>
+        <div id="content" flex>
+            <div id="robot-control-wrapper" layout="column">
+                <div layout="row" flex="30">
+                    <md-button flex></md-button>
+                    <md-button flex></md-button>
                 </div>
-            </div>
-            <div class="footer">
-                <div id="robot-position" layout="row" layout-align="space-around center">
-                    <span><b>Base: </b>78&deg;</span>
-                    <span><b>Neck: </b>69&deg;</span>
-                    <span><b>Arm: </b>23&deg;</span>
-                    <span><b>Claw: </b>45&deg;</span>
+                <div layout="row" flex="25">
+                    <md-button flex="40"></md-button>
+                    <md-button flex></md-button>
                 </div>
-                <md-toolbar layout="row" flex="100">
-                <span flex="20"><i class="fa fa-floppy-o"></i></span>
-                <span flex="20"><i class="fa fa-undo"></i></span>
-                <span flex="20"><i class="fa fa-flag-o"></i></span>
-                <span flex="20"><i class="fa fa-play"></i></span>
-                <span flex="20" ng-click="openBottomSheet()"><i class="fa fa-ellipsis-v"></i></span>
-                </md-toolbar>
+                <div layout="row" flex="25">
+                    <md-button flex></md-button>
+                    <md-button flex></md-button>
+                </div>
+                <div layout="row" flex>
+                    <md-button flex></md-button>
+                    <md-button flex></md-button>
+                </div>
             </div>
         </div>
+        <!--  <div id="robot-position" layout="row" layout-align="space-around center">
+            <span><b>Base: </b>78&deg;</span>
+            <span><b>Neck: </b>69&deg;</span>
+            <span><b>Arm: </b>23&deg;</span>
+            <span><b>Claw: </b>45&deg;</span>
+        </div> -->
+        <md-toolbar>
+        <div class="md-toolbar-tools" layout="row">
+            <md-button class="md-icon-button" aria-label="Save" flex>
+              <md-icon md-svg-icon="images/icons/save8.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Undo" flex>
+              <md-icon md-svg-icon="images/icons/undo5.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Go to start" flex>
+              <md-icon md-svg-icon="images/icons/white66.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Play" flex>
+              <md-icon md-svg-icon="images/icons/play128.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="More" flex ng-click="openBottomSheet()">
+              <md-icon md-svg-icon="images/icons/vertical5.svg"></md-icon>
+            </md-button>
+        </div>
+        </md-toolbar>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script src="bower_components/angular-aria/angular-aria.min.js"></script>
