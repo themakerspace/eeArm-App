@@ -1,0 +1,57 @@
+<md-dialog aria-label="eeArm Settings"  ng-cloak>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>eeArm Settings</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-svg-src="images/icons/close.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content style="max-width:800px;max-height:810px; ">
+
+    <div layout="column" layout-align="center center" ng-hide="settingsFetched">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        <div class="md-grid-text">Fetching settings...</div>
+   </div>
+    <div id="settingsForm" class="ng-hide" ng-show="settingsFetched">
+      <md-input-container flex>
+        <label>Device Name</label>
+        <input ng-model="settings.name"  md-autofocus>
+      </md-input-container>      
+      <p>Wifi Mode</p>
+        <md-radio-group ng-model="settings.mode">
+          <md-radio-button value="0">AP</md-radio-button>
+          <md-radio-button value="1">STA</md-radio-button>
+        </md-radio-group>
+      <md-input-container flex>
+        <label>Wifi SSID</label>
+        <input ng-model="settings.ssid">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Password</label>
+        <input ng-model="settings.pass">
+      </md-input-container>
+      <div layout layout-sm="column">
+      <md-input-container flex>
+        <label>Speed</label>
+        <input ng-model="settings.speed">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Increment Delay</label>
+        <input ng-model="settings.incrementDelay">
+      </md-input-container>
+    </div> 
+    </div> 
+  </md-dialog-content>
+
+  
+  <div class="md-actions" layout="row">
+    <md-button ng-click="cancel()" >
+     Cancel
+    </md-button>
+    <md-button ng-click="save()" style="margin-right:20px;"  disabled>
+      Save
+    </md-button>
+  </div>
+</md-dialog>

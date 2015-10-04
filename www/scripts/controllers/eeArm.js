@@ -1,5 +1,5 @@
-﻿app.controller('eeArm', ['$scope', '$mdSidenav', '$mdBottomSheet', function($scope, $mdSidenav, $mdBottomSheet) {
-	var settings = {
+﻿app.controller('eeArm', ['$scope', '$http', '$mdSidenav', '$mdBottomSheet', '$mdDialog', function($scope, $http, $mdSidenav, $mdBottomSheet, $mdDialog) {
+	$scope.settings = {
 		increments: {
 			base: 12,
 			body: 12,
@@ -7,12 +7,13 @@
 			claw: 12
 		}
 	};
+
 	var connected = false,
 		busy = false,
 		robot = {},
 		increment = 10,
 		clawIncrement = 5,
-		host = "http://GwaArm.local";
+		host = "http://192.168.4.1";
 
 	var setRobotState = function(data) {
 		robot.base = data.base;
@@ -82,18 +83,12 @@
 		busy = false;
 	};
 
-	$.get(host + "/arm", null, function(data) {
-		setRobotState(data);
-		connected = true;
-
-	})
-
 	$scope.baseRotateRight = function() {
 		if (!connected || robot.base == 0 || busy) {
 			return;
 		}
 
-		robot.base -= settings.increments.base;
+		robot.base -= $scope.settings.increments.base;
 
 		if (robot.base < 0) {
 			robot.base = 0;
@@ -107,7 +102,7 @@
 			return;
 		}
 
-		robot.base += settings.increments.base;
+		robot.base += $scope.settings.increments.base;
 
 		if (robot.base > 180) {
 			robot.base = 180;
@@ -121,7 +116,7 @@
 			return;
 		}
 
-		robot.body += settings.increments.body;
+		robot.body += $scope.settings.increments.body;
 
 		if (robot.body > 180) {
 			robot.body = 180;
@@ -135,7 +130,7 @@
 			return;
 		}
 
-		robot.body -= settings.increments.body;
+		robot.body -= $scope.settings.increments.body;
 
 		if (robot.body < 0) {
 			robot.body = 0;
@@ -149,7 +144,7 @@
 			return;
 		}
 
-		robot.neck += settings.increments.neck;
+		robot.neck += $scope.settings.increments.neck;
 
 		if (robot.neck > 180) {
 			robot.neck > 180;
@@ -163,7 +158,7 @@
 			return;
 		}
 
-		robot.neck -= settings.increments.neck;
+		robot.neck -= $scope.settings.increments.neck;
 
 		if (robot.neck < 0) {
 			robot.neck = 0;
@@ -177,7 +172,7 @@
 			return;
 		}
 
-		robot.claw -= settings.increments.claw;
+		robot.claw -= $scope.settings.increments.claw;
 
 		if (robot.claw < 0) {
 			robot.claw = 0;
@@ -191,7 +186,7 @@
 			return;
 		}
 
-		robot.claw += settings.increments.claw;
+		robot.claw += $scope.settings.increments.claw;
 
 		if (robot.claw > 180) {
 			robot.claw = 180;
@@ -204,36 +199,42 @@
 		if (connected) {
 			addStep(robot, 0, 500);
 		}
+		$mdBottomSheet.hide();
 	};
 
 	$scope.saveSteps = function() {
 		if (connected) {
 			saveSteps();
 		}
+		$mdBottomSheet.hide();
 	};
 
 	$scope.clearLastStep = function() {
 		if (connected) {
 			clearLastStep();
 		}
+		$mdBottomSheet.hide();
 	};
 
 	$scope.clearSteps = function() {
 		if (connected) {
 			clearSteps();
 		}
+		$mdBottomSheet.hide();
 	};
 
 	$scope.playSteps = function() {
 		if (connected) {
 			playSteps();
 		}
+		$mdBottomSheet.hide();
 	};
 
 	$scope.goToStart = function() {
 		if (connected) {
 			goToStart();
 		}
+		$mdBottomSheet.hide();
 	};
 
 	$scope.resizeContent = function() {
@@ -258,11 +259,56 @@
 		}
 	};
 
+	$scope.openSideNav = function() {
+
+		$mdSidenav('left').open();
+	};
+
 	$scope.openBottomSheet = function() {
 		$mdBottomSheet.show({
-			template: '<md-bottom-sheet>Hello!</md-bottom-sheet>'
+			templateUrl: 'templates/bottom-sheet.html',
+			controller: 'eeArm'
+		});
+	};
+	$http.get(host + "/arm", {
+		timeout: 5000,
+		cache: false
+	}).then(function(data) {
+		setRobotState(data);
+		connected = true;
+
+	});
+
+	$scope.resizeContent();
+}]);
+
+app.controller('sideNav', ['$scope', '$mdSidenav', '$mdDialog', function($scope, $mdSidenav, $mdDialog) {
+
+	$scope.openSettings = function() {
+		$mdDialog.show({
+			controller: 'settingsDialog',
+			templateUrl: 'templates/settings-dialog.html',
+			clickOutsideToClose: true
 		});
 	};
 
-	$scope.resizeContent();
+	$scope.close = function() {
+		$mdSidenav('left').close();
+	};
+}]);
+
+app.controller('settingsDialog', ['$scope', '$mdDialog', '$timeout', function($scope, $mdDialog, $timeout) {
+	$scope.settingsFetched = false;
+
+	$timeout(function() {
+		$scope.settingsFetched = true;
+	}, 1000);
+
+	$scope.settings = {
+		name: "Hi"
+	};
+
+	$scope.cancel = function() {
+		$mdDialog.cancel();
+	};
 }]);

@@ -15,59 +15,82 @@
     <body ng-controller="eeArm"  layout="column" >
         <md-toolbar>
         <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Menu">
-          <md-icon md-svg-icon="images/icons/reorder.svg"></md-icon>
-        </md-button>
-        <h1>
-          <span>eeArm</span>
-        </h1>
+           <!--  <md-button class="md-icon-button" aria-label="Menu" ng-click="openSideNav()">
+            <md-icon md-svg-icon="images/icons/menu.svg"></md-icon>
+            </md-button> -->
+            <div flex></div>
+            <h1>
+              <span>eeArm</span>
+            </h1>
+            <div flex></div>
         </div>
         </md-toolbar>
         <div id="content" flex  layout="column"  layout-align="center center" layout-wrap>
             <div id="robot-control-wrapper" layout="column">
-                <div layout="row" flex="33">
-                    <md-button ng-click="clawClose()" flex></md-button>
-                    <md-button ng-click="clawOpen()" flex></md-button>
+                <div layout="row" flex="30">
+                    <div ng-click="clawClose()" flex></div>
+                    <div ng-click="clawOpen()" flex></div>
                 </div>
                 <div layout="row" flex="25">
-                    <md-button ng-click="neckMoveUp()" flex="40"></md-button>
-                    <md-button ng-click="neckMoveDown()" flex></md-button>
+                    <div ng-click="neckMoveUp()" flex="40"></div>
+                    <div ng-click="neckMoveDown()" flex></div>
                 </div>
                 <div layout="row" flex="25">
-                    <md-button ng-click="bodyMoveBackward()" flex></md-button>
-                    <md-button ng-click="bodyMoveForward()" flex></md-button>
+                    <div ng-click="bodyMoveBackward()" flex></div>
+                    <div ng-click="bodyMoveForward()" flex></div>
                 </div>
                 <div layout="row" flex>
-                    <md-button ng-click="baseRotateRight()" flex></md-button>
-                    <md-button ng-click="baseRotateLeft()" flex></md-button>
+                    <div ng-click="baseRotateRight()" flex></div>
+                    <div ng-click="baseRotateLeft()" flex></div>
                 </div>
             </div>
         </div>
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+          <md-toolbar class="md-theme-light">
+            <h1 class="md-toolbar-tools">Sidenav Right</h1>
+          </md-toolbar>
+          <md-content ng-controller="sideNav" layout-padding>
+            <form>
+                <md-input-container>
+                <label for="testInput">Test input</label>
+                <input type="text" id="testInput"
+                ng-model="data" md-autofocus>
+                </md-input-container>
+            </form>
+            <md-button ng-click="openSettings()" class="md-primary">
+              Open Settings
+            </md-button>
+
+            <md-button ng-click="close()" class="md-primary">
+            Close
+            </md-button>
+          </md-content>           
+        </md-sidenav>
         <!--  <div id="robot-position" layout="row" layout-align="space-around center">
-            <span><b>Base: </b>78&deg;</span>
-            <span><b>Neck: </b>69&deg;</span>
-            <span><b>Arm: </b>23&deg;</span>
-            <span><b>Claw: </b>45&deg;</span>
+                                    <span><b>Base: </b>78&deg;</span>
+                                    <span><b>Neck: </b>69&deg;</span>
+                                    <span><b>Arm: </b>23&deg;</span>
+                                    <span><b>Claw: </b>45&deg;</span>
         </div> -->
         <md-toolbar>
         <div class="md-toolbar-tools" layout="row" layout-align="space-between center" layout-wrap>
             <md-button class="md-icon-button" aria-label="Add" ng-click="addStep()">
-              <md-icon md-svg-icon="images/icons/plus25.svg"></md-icon>
+            <md-icon md-svg-icon="images/icons/plus.svg"></md-icon>
             </md-button>
-<!--             <md-button class="md-icon-button" aria-label="Save" ng-click="saveSteps()">
-              <md-icon md-svg-icon="images/icons/save8.svg"></md-icon>
+            <!--             <md-button class="md-icon-button" aria-label="Save" ng-click="saveSteps()">
+                                        <md-icon md-svg-icon="images/icons/save8.svg"></md-icon>
             </md-button> -->
             <md-button class="md-icon-button" aria-label="Undo" ng-click="clearLastStep()">
-              <md-icon md-svg-icon="images/icons/undo5.svg"></md-icon>
+            <md-icon md-svg-icon="images/icons/undo.svg"></md-icon>
             </md-button>
             <md-button class="md-icon-button" aria-label="Go to start" ng-click="goToStart()">
-              <md-icon md-svg-icon="images/icons/white66.svg"></md-icon>
+            <md-icon md-svg-icon="images/icons/flag.svg"></md-icon>
             </md-button>
             <md-button class="md-icon-button" aria-label="Play" ng-click="playSteps()">
-              <md-icon md-svg-icon="images/icons/play128.svg"></md-icon>
+            <md-icon md-svg-icon="images/icons/play.svg"></md-icon>
             </md-button>
             <md-button class="md-icon-button" aria-label="More" ng-click="openBottomSheet()">
-              <md-icon md-svg-icon="images/icons/vertical5.svg"></md-icon>
+            <md-icon md-svg-icon="images/icons/vertical.svg"></md-icon>
             </md-button>
         </div>
         </md-toolbar>

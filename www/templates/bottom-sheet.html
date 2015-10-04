@@ -1,0 +1,40 @@
+<md-bottom-sheet class="md-grid" layout="row" ng-cloak>
+  <md-list flex layout="row" layout-align="center center">
+    <md-list-item>
+      <md-button class="md-grid-item-content" ng-click="addStep()">
+        <md-icon md-svg-src="images/icons/plus.svg"></md-icon>
+        <div class="md-grid-text">Add Step</div>
+      </md-button>
+    </md-list-item>
+    <md-list-item>
+      <md-button class="md-grid-item-content" ng-click="saveSteps()">
+        <md-icon md-svg-src="images/icons/save.svg"></md-icon>
+        <div class="md-grid-text">Save Steps</div>
+      </md-button>
+    </md-list-item>
+    <md-list-item>
+      <md-button class="md-grid-item-content" ng-click="clearLastStep()">
+        <md-icon md-svg-src="images/icons/undo.svg"></md-icon>
+        <div class="md-grid-text">Clear Last</div>
+      </md-button>
+    </md-list-item>
+    <md-list-item>
+      <md-button class="md-grid-item-content" ng-click="goToStart()">
+        <md-icon md-svg-src="images/icons/flag.svg"></md-icon>
+        <div class="md-grid-text">Go to Start</div>
+      </md-button>
+    </md-list-item>
+    <md-list-item>
+      <md-button class="md-grid-item-content" ng-click="playSteps()">
+        <md-icon md-svg-src="images/icons/play.svg"></md-icon>
+        <div class="md-grid-text">Play steps</div>
+      </md-button>
+    </md-list-item>
+    <md-list-item>
+      <md-button class="md-grid-item-content" ng-click="clearSteps()">
+        <md-icon md-svg-src="images/icons/remove.svg"></md-icon>
+        <div class="md-grid-text">Clear Steps</div>
+      </md-button>
+    </md-list-item>
+  </md-list>
+</md-bottom-sheet>

@@ -2,11 +2,20 @@
     background: url("../images/robot/robot_initial.png") no-repeat top center;
     background-size: auto 100%;
     margin: 0 auto;
-    width:100%;
+    width: 100%;
     max-width: 1024px;
 }
 
-#robot-control-wrapper button{
-  padding: 0;
-  margin: 0;
+#robot-control-wrapper button {
+    padding: 0;
+    margin: 0;
+}
+
+.md-grid-item-content {
+    height: 96px;
+}
+
+.md-grid-item-content md-icon {
+    height: 48px;
+    width: 48px;
 }
