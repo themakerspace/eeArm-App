@@ -270,13 +270,14 @@
 			controller: 'eeArm'
 		});
 	};
+
+	
 	$http.get(host + "/arm", {
 		timeout: 5000,
 		cache: false
 	}).then(function(data) {
 		setRobotState(data);
 		connected = true;
-
 	});
 
 	$scope.resizeContent();

@@ -20,9 +20,11 @@
   <preference name="exit-on-suspend"            value="false" />
   <preference name="show-splash-screen-spinner" value="false" />   
   <preference name="SplashScreen"               value="screen"/>
-  <preference name="AutoHideSplashScreen"       value="false" />     
+  <preference name="AutoHideSplashScreen"       value="false" />   
+  <preference name="orientation"                value="portrait" />
+  <preference name="fullscreen"                 value="true" />  
 
-  <gap:plugin name="org.apache.cordova.splashscreen" />
+  <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 
   <!-- Android Icons -->
   <icon src="resources/android/icon/drawable-ldpi-icon.png" gap:platform="android" gap:qualifier="ldpi"/>
@@ -75,7 +77,7 @@
   
   <icon src="resources/icon.png"/>
 
-  <plugin name="cordova-plugin-whitelist" version="1.0.0"/>
+  <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
   
   <access origin="*"/>
   <allow-intent href="http://*/*"/>

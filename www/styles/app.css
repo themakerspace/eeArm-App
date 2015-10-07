@@ -4,6 +4,12 @@
     margin: 0 auto;
     width: 100%;
     max-width: 1024px;
+
+}
+
+#robot-control-wrapper div:focus {
+    outline: 0;
+    outline: none;
 }
 
 #robot-control-wrapper button {
